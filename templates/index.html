@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+{% block page_content %}
+<div class="page-header">
+   <h1>Web en Flask</h1>
+   <span>Esto será el principio de algo genial</span>
+   <p>La fecha y hora locales son {{moment(ahora).format("LLL")}}</p>
+   <p>Actualizado: {{moment(ahora).fromNow(refresh = True)}}</p>
+</div>
+<div>
+   <h1>
+      {% if nombre_usuario %}
+         Bienvenido {{ nombre_usuario }}!
+      {% else %}
+         Registra tu nombre.
+      {% endif %}
+   </h1>
+   <form method="POST">
+      {{formulario_nombre.hidden_tag()}}
+      {{formulario_nombre.nombre.label}}
+      {{formulario_nombre.nombre()}}
+      {{formulario_nombre.registrar()}}
+   </form>
+</div>
+<!--{{ wtf.quick_form(formulario_nombre) }}-->
+{% endblock %}

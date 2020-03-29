@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page_content %}
+   <div class="page-header">
+      {% if nombre_animal %}
+         <h1>Tu mascota es un: {{nombre_animal|upper}}!</h1>
+      {% else %}
+         <h1>Al parecer no tienes mascotas todavía</h1>
+      {% endif %}
+   </div>
+{% endblock %}
